@@ -13,7 +13,8 @@ daily_forecast:
 weather_overview:
   name: Weather overview
   entities:
-  - sensor.pws_weather_1d_metric
+  - sensor.pws_weather
+  - sensor.pws_observation_time
   - sensor.pws_temp_high_record_c
   - sensor.pws_temp_high_1d_c
   - sensor.pws_temp_c
