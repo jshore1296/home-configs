@@ -46,8 +46,8 @@ http:
   api_password: !secret api_password
   # Uncomment this if you are using SSL or running in Docker etc
   # base_url: example.duckdns.org:8123
-  ssl_certificate: /home/jshore/.homeassistant/fullchain.pem
-  ssl_key: /home/jshore/.homeassistant/privkey.pem
+  ssl_certificate: /config/fullchain.pem
+  ssl_key: /config/privkey.pem
 
 # Checks for available updates
 # Note: This component will send some information about your system to
