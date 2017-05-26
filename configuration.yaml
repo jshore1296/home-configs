@@ -46,8 +46,8 @@ http:
   api_password: !secret api_password
   # Uncomment this if you are using SSL or running in Docker etc
   # base_url: example.duckdns.org:8123
-  ssl_certificate: /config/fullchain.pem
-  ssl_key: /config/privkey.pem
+  ssl_certificate: /home/homeassistant/.homeassistant/fullchain.pem
+  ssl_key: /home/homeassistant/.homeassistant/privkey.pem
 
 # Checks for available updates
 # Note: This component will send some information about your system to
