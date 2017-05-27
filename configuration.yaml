@@ -97,7 +97,7 @@ sensor:
       - wind_kph
       - wind_1d_kph
       - alerts
-  - platform: fastdotcom
+#  - platform: fastdotcom
   - platform: cert_expiry
     host: home-assistant.jeanclaudeshore.com
     port: 8123
