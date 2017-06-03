@@ -126,6 +126,3 @@ notify:
     gcm_sender_id: !secret gcm_sender_id
 
 automation: !include automations.yaml
-
-emulated_hue:
-  type: alexa
