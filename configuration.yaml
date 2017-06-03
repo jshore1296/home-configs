@@ -97,7 +97,7 @@ sensor:
       - wind_kph
       - wind_1d_kph
       - alerts
-#  - platform: fastdotcom
+  - platform: fastdotcom
   - platform: cert_expiry
     host: home-assistant.jeanclaudeshore.com
     port: 8123
@@ -116,8 +116,6 @@ group: !include groups.yaml
 media_player:
   - platform: pandora
 
-keyboard:
-
 notify:
   - platform: discord
     name: discord
@@ -128,3 +126,6 @@ notify:
     gcm_sender_id: !secret gcm_sender_id
 
 automation: !include automations.yaml
+
+emulated_hue:
+  type: alexa
