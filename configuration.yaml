@@ -128,3 +128,6 @@ notify:
 automation: !include automations.yaml
 
 alexa: !include alexa.yaml
+
+alarm_control_panel:
+  - platform: manual
