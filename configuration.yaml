@@ -18,6 +18,12 @@ zone:
   radius: 175
   icon: mdi:worker
 
+zone 2:
+  name: Laura
+  latitude: !secret laura_latitude
+  longitude: !secret laura_longitude
+  icon: mdi:heart
+
 # Show links to resources in log and frontend
 introduction:
 
@@ -95,6 +101,3 @@ notify:
 automation: !include automations.yaml
 
 alexa: !include alexa.yaml
-
-alarm_control_panel:
-  - platform: manual

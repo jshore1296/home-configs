@@ -31,8 +31,23 @@
     - type: memory_use_percent
     - type: processor_use
 - platform: google_travel_time
+  name: JC's Phone to Home
   api_key: !secret google_api_key
-  origin: device_tracker.jc
+  origin: device_tracker.xmfjvdpx_mk6p55
   destination: zone.home
+  options:
+    units: imperial
+- platform: google_travel_time
+  name: JC's Phone to Work
+  api_key: !secret google_api_key
+  origin: device_tracker.xmfjvdpx_mk6p55
+  destination: zone.work
+  options:
+    units: imperial
+- platform: google_travel_time
+  name: JC's Phone to Laura's Apartment
+  api_key: !secret google_api_key
+  origin: device_tracker.xmfjvdpx_mk6p55
+  destination: zone.laura
   options:
     units: imperial
