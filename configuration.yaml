@@ -11,6 +11,9 @@ homeassistant:
   # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   time_zone: America/New_York
 
+recorder:
+  purge_days: 2
+
 zone:
   name: Work
   latitude: !secret work_latitude
