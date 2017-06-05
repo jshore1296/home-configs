@@ -48,6 +48,11 @@
   name: JC's Phone to Laura's Apartment
   api_key: !secret google_api_key
   origin: device_tracker.xmfjvdpx_mk6p55
-  destination: zone.laura
+  destination: zone.lauras_apartment
   options:
     units: imperial
+- platform: mqtt
+  state_topic: "owntracks/xmfjvdpx/mk6p55"
+  name: "Phone Battery"
+  unit_of_measurement: "%"
+  value_template: '{{ value_json.batt }}'

@@ -22,7 +22,7 @@ zone:
   icon: mdi:worker
 
 zone 2:
-  name: Laura
+  name: Laura's_Apartment
   latitude: !secret laura_latitude
   longitude: !secret laura_longitude
   icon: mdi:heart
