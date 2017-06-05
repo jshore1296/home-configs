@@ -1,3 +1,10 @@
+weather_full:
+  view: yes
+  icon: mdi:cloud
+  entities:
+    - group.daily_forecast
+    - group.weather_overview
+    - camera.rdu_weather
 daily_forecast:
   name: Daily Forecast
   entities:
@@ -9,7 +16,6 @@ daily_forecast:
   - sensor.pws_weather_3n
   - sensor.pws_weather_4d
   - sensor.pws_weather_4n
-  view: false
 weather_overview:
   name: Weather overview
   entities:
