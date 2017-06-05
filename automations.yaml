@@ -27,7 +27,7 @@
   trigger:
     platform: numeric_state
     entity_id: sensor.pws_alerts
-    value_template: '{{ state.attributes.value }}'
+    value_template: '{{ state }}'
     above: 0
   action:
     - service: notify.discord
@@ -39,3 +39,14 @@
     - service: notify.html5
       data:
         message: 'There are weather alerts in Discord!'
+
+- id: update_notifications
+  alias: Update Notifications
+  trigger:
+    platform: state
+    entity_id: updater.updater
+  action:
+    - service: notify.html5
+      data:
+        message: 'Update for Home Assistant is available.'
+
