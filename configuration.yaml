@@ -89,8 +89,8 @@ tts:
 
 group: !include groups.yaml
 
-media_player:
-  - platform: pandora
+#media_player:
+#  - platform: pandora
 
 notify:
   - platform: discord
