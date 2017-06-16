@@ -6,47 +6,29 @@
     minutes: 30
     seconds: 0
   action:
-    - service: notify.html5
-      data_template:
-        message: >
-          The weather for {{ states.sensor.pws_weather_1d.attributes.friendly_name }} is{{ ':' }}
-          {{ states.sensor.pws_weather_1d.state }}
-          {{ states.sensor.pws_weather_1d.attributes.entity_picture }}
-          {{ states.sensor.pws_weather_1d.attributes.attribution }}
-    - service: notify.discord
-      data_template:
-        message: >
-          The weather for {{ states.sensor.pws_weather_1d.attributes.friendly_name }} is{{ ':' }}
-          {{ states.sensor.pws_weather_1d.state }}
-          {{ states.sensor.pws_weather_1d.attributes.entity_picture }}
-          {{ states.sensor.pws_weather_1d.attributes.attribution }}
-        target: !secret discord_general_channel
+  - service: notify.html5
+    data_template:
+      message: 'The weather for {{ states.sensor.pws_weather_1d.attributes.friendly_name
+        }} is{{ '':'' }} {{ states.sensor.pws_weather_1d.state }} {{ states.sensor.pws_weather_1d.attributes.entity_picture
+        }} {{ states.sensor.pws_weather_1d.attributes.attribution }}
 
+        '
 - id: weather_alerts
   alias: Weather Alerts
   trigger:
-    platform: numeric_state
+  - above: '0'
     entity_id: sensor.pws_alerts
-    value_template: '{{ state }}'
-    above: 0
+    platform: numeric_state
   action:
-    - service: notify.discord
-      data_template:
-        message: >
-          {{ '@everyone' }}
-          {{ states.sensor.pws_alerts }}
-        target: !secret discord_general_channel
-    - service: notify.html5
-      data:
-        message: 'There are weather alerts in Discord!'
-
+  - data:
+      message: Active weather alerts in Home Assistant
+    service: notify.html5
 - id: update_notifications
   alias: Update Notifications
   trigger:
     platform: state
     entity_id: updater.updater
   action:
-    - service: notify.html5
-      data:
-        message: 'Update for Home Assistant is available.'
-
+  - service: notify.html5
+    data:
+      message: Update for Home Assistant is available.

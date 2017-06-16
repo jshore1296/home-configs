@@ -1,6 +1,8 @@
+- platform: random
 - platform: wunderground
   api_key: !secret wunderground_key
   pws_id: !secret wunderground_id
+  force_update: True
   monitored_conditions:
     - weather_1d
     - weather_1n
@@ -58,23 +60,6 @@
   value_template: '{{ value_json.batt }}'
 - platform: fitbit
   monitored_resources:
-    - activities/activityCalories
-    - activities/calories
-    - activities/caloriesBMR
     - activities/distance
     - activities/elevation
-    - activities/floors
-    - activities/heart
-    - activities/minutesFairlyActive
-    - activities/minutesLightlyActive
-    - activities/minutesSedentary
-    - activities/minutesVeryActive
     - activities/steps
-    - sleep/awakeningsCount
-    - sleep/efficiency
-    - sleep/minutesAfterWakeup
-    - sleep/minutesAsleep
-    - sleep/minutesAwake
-    - sleep/minutesToFallAsleep
-    - sleep/startTime
-    - sleep/timeInBed
