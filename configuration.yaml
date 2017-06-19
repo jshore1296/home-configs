@@ -109,3 +109,7 @@ camera:
   platform: generic
   still_image_url: https://radblast.wunderground.com/cgi-bin/radar/WUNIDS_map?station=RAX&brand=wui&num=5&delay=50&type=N0R&frame=0&scale=1.000&noclutter=1&showstorms=10&mapx=400&mapy=240&centerx=400&centery=240&transx=0&transy=0&showlabels=1&severe=0&rainsnow=1&lightning=0&smooth=0&rand=24946471&lat=0&lon=0&label=you
   name: RDU Weather
+
+light:
+  platform: hue
+  host: 192.168.1.15
