@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# Domain name, username, and password from your Google Domains control panel
+MyGDomain=
+Username=
+Password=
+# WAN interface name
+#WANInterface=
+
+# Record current WAN IP address from the WAN network interface
+#CurrWANIP=$(ip -o -4 addr show $WANInterface | awk -F '[ /]+' '{print $4}')
+CurrWANIP=$(dig +short myip.opendns.com @resolver1.opendns.com)
+# Record IP which your Google domain is currently resolving to
+GDNSIP=$(dig $MyGDomain +short)
+
+# Check if current external IP address matches the address your Google domain resolves to
+if [ "$CurrWANIP" == "$GDNSIP" ]; then
+        # If the IP addresses match, your domain is up to date. Exit.
+        logger "Google Domains DDNS: WAN IP ($CurrWANIP) unchanged, no update necessary"
+else
+        # If the IP addresses do not match, send a POST request over HTTPS to the Google DDNS API to update the record
+        ipupdate=$(curl -s https://$Username:$Password@domains.google.com/nic/update?hostname=$MyGDomain&myip=$CurrWANIP)
+        # Check if the updated IP returned in the HTTP response matches the current external IP
+        if [ "$ipupdate" == "good $CurrWANIP" ]; then
+         # If IP addresses match, log and exit
+         logger "Google Domains DDNS: DNS updated to $CurrWANIP from $GDNSIP"
+        else
+         # If IP addresses do not match, log out output to stderr the HTTP response
+         logger -s "Google Domains DDNS: Error: $ipupdate"
+        fi
+fi

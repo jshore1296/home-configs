@@ -27,7 +27,7 @@
 - platform: fastdotcom
 - platform: cert_expiry
   host: home-assistant.jeanclaudeshore.com
-  port: 8123
+  port: 443
 - platform: systemmonitor
   resources:
     - type: memory_use_percent

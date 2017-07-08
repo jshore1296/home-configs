@@ -54,9 +54,9 @@ http:
   # Uncomment this to add a password (recommended!)
   api_password: !secret api_password
   # Uncomment this if you are using SSL or running in Docker etc
-  base_url: home-assistant.jeanclaudeshore.com:8123
-  ssl_certificate: /home/homeassistant/.homeassistant/fullchain.pem
-  ssl_key: /home/homeassistant/.homeassistant/privkey.pem
+  base_url: home-assistant.jeanclaudeshore.com
+  #ssl_certificate: /home/homeassistant/.homeassistant/fullchain.pem
+  #ssl_key: /home/homeassistant/.homeassistant/privkey.pem
 
 # Checks for available updates
 # Note: This component will send some information about your system to
