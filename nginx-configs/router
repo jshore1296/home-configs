@@ -1,28 +1,28 @@
 # Upstreams
-upstream backend-rkt {
-    server 127.0.0.1:3000;
+upstream backend-router {
+    server 192.168.1.1;
 }
 
 server {
        listen         80;
-       server_name    rocketchat.jeanclaudeshore.com;
+       server_name    router.jeanclaudeshore.com;
        return         301 https://$server_name$request_uri;
 }
 
 # HTTPS Server
 server {
     listen 443;
-    server_name rocketchat.jeanclaudeshore.com;
+    server_name router.jeanclaudeshore.com;
 
-    error_log /var/log/nginx/rocketchat.access.log;
+    error_log /var/log/nginx/router.access.log;
 
     ssl on;
-    ssl_certificate /etc/letsencrypt/live/rocketchat.jeanclaudeshore.com/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/rocketchat.jeanclaudeshore.com/privkey.pem;
+    ssl_certificate /etc/letsencrypt/live/router.jeanclaudeshore.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/router.jeanclaudeshore.com/privkey.pem;
     ssl_protocols TLSv1 TLSv1.1 TLSv1.2; # don’t use SSLv3 ref: POODLE
 
     location / {
-        proxy_pass http://backend-rkt/;
+        proxy_pass http://backend-router/;
         proxy_http_version 1.1;
         proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection "upgrade";

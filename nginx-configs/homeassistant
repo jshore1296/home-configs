@@ -3,6 +3,12 @@ upstream backend-hass {
     server 127.0.0.1:8123;
 }
 
+server {
+       listen         80;
+       server_name    home-assistant.jeanclaudeshore.com;
+       return         301 https://$server_name$request_uri;
+}
+
 # HTTPS Server
 server {
     listen 443;
