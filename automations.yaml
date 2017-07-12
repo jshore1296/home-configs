@@ -16,9 +16,12 @@
 - id: weather_alerts
   alias: Weather Alerts
   trigger:
-  - above: '0'
-    entity_id: sensor.pws_alerts
-    platform: numeric_state
+  - entity_id: sensor.pws_alerts
+    platform: state
+  condition:
+    - condition: state
+      entity_id: binary_sensor.alerts_increase
+      state: 'on'
   action:
   - data:
       message: Active weather alerts in Home Assistant

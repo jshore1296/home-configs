@@ -11,6 +11,10 @@ homeassistant:
   # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   time_zone: America/New_York
 
+influxdb:
+  host: 127.0.0.1
+  username: home-assistant
+  password: !secret influx_password
 recorder:
   purge_days: 2
 
@@ -113,3 +117,9 @@ camera:
 light:
   platform: hue
   host: 192.168.1.15
+
+binary_sensor:
+  - platform: trend
+    sensors:
+      alerts_increase:
+        entity_id: sensor.pws_alerts
