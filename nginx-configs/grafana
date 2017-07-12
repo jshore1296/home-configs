@@ -1,0 +1,38 @@
+# Upstreams
+upstream backend-router {
+    server 192.168.1.2:3500;
+}
+
+server {
+       listen         80;
+       server_name    grafana.jeanclaudeshore.com;
+       return         301 https://$server_name$request_uri;
+}
+
+# HTTPS Server
+server {
+    listen 443;
+    server_name grafana.jeanclaudeshore.com;
+
+    error_log /var/log/nginx/grafana.access.log;
+
+    ssl on;
+    ssl_certificate /etc/letsencrypt/live/grafana.jeanclaudeshore.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/grafana.jeanclaudeshore.com/privkey.pem;
+    ssl_protocols TLSv1 TLSv1.1 TLSv1.2; # don’t use SSLv3 ref: POODLE
+
+    location / {
+        proxy_pass http://backend-router/;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+        proxy_set_header Host $http_host;
+
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forward-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forward-Proto http;
+        proxy_set_header X-Nginx-Proxy true;
+
+        proxy_redirect off;
+    }
+}
