@@ -2,7 +2,7 @@
 - platform: wunderground
   api_key: !secret wunderground_key
   pws_id: !secret wunderground_id
-  force_update: True
+  force_update: true
   monitored_conditions:
     - weather_1d
     - weather_1n
@@ -28,15 +28,19 @@
 - platform: cert_expiry
   host: home-assistant.jeanclaudeshore.com
   port: 443
+  name: HA Cert
 - platform: systemmonitor
   resources:
     - type: memory_use_percent
     - type: processor_use
+    - type: memory_use
+  force_update: true
 - platform: google_travel_time
   name: JC's Phone to Home
   api_key: !secret google_api_key
   origin: device_tracker.xmfjvdpx_mk6p55
   destination: zone.home
+  force_update: true
   options:
     units: imperial
 - platform: google_travel_time
@@ -44,6 +48,7 @@
   api_key: !secret google_api_key
   origin: device_tracker.xmfjvdpx_mk6p55
   destination: zone.work
+  force_update: true
   options:
     units: imperial
 - platform: google_travel_time
@@ -51,6 +56,7 @@
   api_key: !secret google_api_key
   origin: device_tracker.xmfjvdpx_mk6p55
   destination: zone.lauras_apartment
+  force_update: true
   options:
     units: imperial
 - platform: mqtt
