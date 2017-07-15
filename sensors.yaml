@@ -34,6 +34,8 @@
     - type: memory_use_percent
     - type: processor_use
     - type: memory_use
+    - type: disk_use_percent
+      arg: /
   force_update: true
 - platform: google_travel_time
   name: JC's Phone to Home
