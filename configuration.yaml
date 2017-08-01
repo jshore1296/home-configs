@@ -36,6 +36,9 @@ introduction:
 
 # Enables the frontend
 frontend:
+  themes:
+    main:
+      primary-color: blue
 
 # Enables configuration UI
 config:
@@ -107,7 +110,7 @@ notify:
 
 automation: !include automations.yaml
 
-alexa: !include alexa.yaml
+intent_script: !include intents.yaml
 
 camera:
   platform: generic
