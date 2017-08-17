@@ -21,8 +21,7 @@ weather_overview:
   entities:
   - sensor.pws_weather
   - sensor.pws_wind_string
-  - sensor.pws_feelslike_string
-  - sensor.pws_heat_index_string
+  - sensor.pws_feelslike_f
   - sensor.pws_observation_time
   - sensor.pws_temp_high_record_f
   - sensor.pws_temp_high_1d_f

@@ -22,13 +22,12 @@
     - precip_1d
     - precip_1d_mm
     - alerts
-    - feelslike_string
-    - heat_index_string
     - pressure_in
     - relative_humidity
     - solarradiation
     - visibility_mi
     - wind_string
+    - feelslike_f
 - platform: fastdotcom
 - platform: cert_expiry
   host: home-assistant.jeanclaudeshore.com
