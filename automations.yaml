@@ -1,3 +1,13 @@
+- id: light_off_leave
+  alias: Turn off lights when I leave
+  trigger:
+    - platform: state
+      entity_id: device_tracker.xmfjvdpx_mk6p55
+      to: not_home
+  action:
+    service: light.turn_off
+    entity_id:
+      - light.bedroom
 - id: light_on_arrive
   alias: Turn on lights when I arrive home
   trigger:
