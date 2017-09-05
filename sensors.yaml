@@ -70,8 +70,8 @@
   name: "Phone Battery"
   unit_of_measurement: "%"
   value_template: '{{ value_json.batt }}'
-- platform: fitbit
-  monitored_resources:
-    - activities/distance
-    - activities/elevation
-    - activities/steps
+  #- platform: fitbit
+  #  monitored_resources:
+  #  - activities/distance
+  #  - activities/elevation
+  #  - activities/steps
