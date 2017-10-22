@@ -43,6 +43,8 @@ frontend:
 # Enables configuration UI
 config:
 
+map:
+
 mqtt:
   broker: m13.cloudmqtt.com
   port: 22371
