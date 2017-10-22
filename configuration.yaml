@@ -15,8 +15,11 @@ influxdb:
   host: 127.0.0.1
   username: home-assistant
   password: !secret influx_password
+
 recorder:
-  purge_days: 2
+  purge_interval: 1
+  purge_keep_days: 5
+
 
 zone:
   name: Work
