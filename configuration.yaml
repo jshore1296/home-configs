@@ -25,7 +25,6 @@ zone:
   name: Work
   latitude: !secret work_latitude
   longitude: !secret work_longitude
-  radius: 175
   icon: mdi:worker
 
 zone 2:
