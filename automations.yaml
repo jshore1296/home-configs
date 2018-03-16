@@ -1,42 +1,45 @@
 - id: light_off_leave
   alias: Turn off lights when I leave
   trigger:
-    - platform: state
-      entity_id: device_tracker.xmfjvdpx_mk6p55
-      to: not_home
+  - platform: state
+    entity_id: device_tracker.xmfjvdpx_mk6p55
+    to: not_home
   action:
     service: light.turn_off
     entity_id:
-      - light.bedroom
+    - light.bedroom
 - id: light_on_arrive
   alias: Turn on lights when I arrive home
   trigger:
-    - platform: state
-      entity_id: device_tracker.xmfjvdpx_mk6p55
-      from: not_home
-      to: home
+  - platform: state
+    entity_id: device_tracker.xmfjvdpx_mk6p55
+    from: not_home
+    to: home
   condition:
     condition: and
     conditions:
-      - condition: state
-        entity_id: device_tracker.xmfjvdpx_mk6p55
-        state: home
-      - condition: sun
-        after: sunset
-        after_offset: "-1:30:00"
+    - condition: state
+      entity_id: device_tracker.xmfjvdpx_mk6p55
+      state: home
+    - condition: sun
+      after: sunset
+      after_offset: '-1:30:00'
   action:
     service: light.turn_on
-    entity_id: 
-      - light.bedroom
+    entity_id:
+    - light.bedroom
     data:
       brightness: 200
-      rgb_color: [255, 198, 102]
+      rgb_color:
+      - 255
+      - 198
+      - 102
 - id: set_start_theme
   alias: Set Theme on Startup
-  initial_state: on
+  initial_state: true
   trigger:
-    - platform: homeassistant
-      event: start
+  - platform: homeassistant
+    event: start
   action:
     service: frontend.set_theme
     data:
@@ -44,27 +47,28 @@
 - id: weather_forecast
   alias: Weather Forecast
   trigger:
-    platform: time
+  - at: '5:30:00'
     hours: 5
     minutes: 30
+    platform: time
     seconds: 0
   action:
-  - service: notify.html5
-    data_template:
+  - data_template:
       message: 'The weather for {{ states.sensor.pws_weather_1d.attributes.friendly_name
         }} is{{ '':'' }} {{ states.sensor.pws_weather_1d.state }} {{ states.sensor.pws_weather_1d.attributes.entity_picture
         }} {{ states.sensor.pws_weather_1d.attributes.attribution }}
 
         '
+    service: notify.html5
 - id: weather_alerts
   alias: Weather Alerts
   trigger:
   - entity_id: sensor.pws_alerts
     platform: state
   condition:
-    - condition: state
-      entity_id: binary_sensor.alerts_increase
-      state: 'on'
+  - condition: state
+    entity_id: binary_sensor.alerts_increase
+    state: 'on'
   action:
   - data:
       message: Active weather alerts in Home Assistant
