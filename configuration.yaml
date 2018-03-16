@@ -107,11 +107,11 @@ intent_script: !include intents.yaml
 
 camera:
   - platform: generic
-    still_image_url: https://radblast.wunderground.com/cgi-bin/radar/WUNIDS_map?station=RDU&brand=wui&num=12&delay=15&type=TZL&frame=0&scale=0.5&noclutter=1&showstorms=0&mapx=400&mapy=240&centerx=418&centery=224.5&transx=18&transy=-15.5&showlabels=0&severe=0&rainsnow=1&lightning=1&smooth=1&rand=24961193&lat={{ states.device_tracker.jc_motog5.attributes.latitude }}&lon={{ states.device_tracker.jc_motog5.attributes.longitude }}&label={{ states.device_tracker.jc_motog5.attributes.friendly_name }}
+    still_image_url: https://radblast.wunderground.com/cgi-bin/radar/WUNIDS_map?station=RDU&brand=wui&num=12&delay=15&type=TZL&frame=0&scale=0.5&noclutter=1&showstorms=0&mapx=400&mapy=240&centerx=418&centery=224.5&transx=18&transy=-15.5&showlabels=0&severe=0&rainsnow=1&lightning=1&smooth=1&rand=24961193&lat={{ states.device_tracker.jc_motox4.attributes.latitude }}&lon={{ states.device_tracker.jc_motox4.attributes.longitude }}&label={{ states.device_tracker.jc_motox4.attributes.friendly_name }}
     name: RDU Weather
   - name: Map
     platform: generic
-    still_image_url: https://maps.googleapis.com/maps/api/staticmap?center={{ states.device_tracker.jc_motog5.attributes.latitude }},{{ states.device_tracker.jc_motog5.attributes.longitude }}&zoom=13&size=500x500&maptype=roadmap&markers=color:blue%7Clabel:P%7C{{ states.device_tracker.jc_motog5.attributes.latitude }},{{ states.device_tracker.jc_motog5.attributes.longitude }}
+    still_image_url: https://maps.googleapis.com/maps/api/staticmap?center={{ states.device_tracker.jc_motox4.attributes.latitude }},{{ states.device_tracker.jc_motox4.attributes.longitude }}&zoom=13&size=500x500&maptype=roadmap&markers=color:blue%7Clabel:P%7C{{ states.device_tracker.jc_motox4.attributes.latitude }},{{ states.device_tracker.jc_motox4.attributes.longitude }}
     limit_refetch_to_url_change: true
 
 light:

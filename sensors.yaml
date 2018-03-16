@@ -44,7 +44,7 @@
 - platform: google_travel_time
   name: JC's Phone to Home
   api_key: !secret google_api_key
-  origin: device_tracker.jc_motog5
+  origin: device_tracker.jc_motox4
   destination: zone.home
   force_update: true
   options:
@@ -52,7 +52,7 @@
 - platform: google_travel_time
   name: JC's Phone to Work
   api_key: !secret google_api_key
-  origin: device_tracker.jc_motog5
+  origin: device_tracker.jc_motox4
   destination: zone.work
   force_update: true
   options:
@@ -60,7 +60,7 @@
 - platform: google_travel_time
   name: JC's Phone to Laura's Apartment
   api_key: !secret google_api_key
-  origin: device_tracker.jc_motog5
+  origin: device_tracker.jc_motox4
   destination: zone.lauras_apartment
   force_update: true
   options:
